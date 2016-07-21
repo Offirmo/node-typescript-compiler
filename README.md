@@ -1,4 +1,6 @@
 # node-typescript-compiler
+[![NPM version](https://badge.fury.io/js/node-typescript-compiler.png)](http://badge.fury.io/js/node-typescript-compiler)
+[![license](http://img.shields.io/badge/license-public_domain-brightgreen.png)](http://unlicense.org/)
 
 Exposes typescript compiler (tsc) as a node.js module
 
@@ -32,6 +34,7 @@ tsc.compile({
 })
 .then(...)
 ```
+--> `tsc --project .`
 
 * Compile current project with some options overridden:
 
@@ -58,3 +61,4 @@ return tsc.compile({
 	'help': true
 })
 ```
+--> `tsc --help` (boolean "true" values are not needed thus don't appear)
