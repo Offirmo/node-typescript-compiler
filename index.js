@@ -9,7 +9,7 @@ const _ = require('lodash')
 
 ///////////////////////////////////////////////////////
 
-const spawn_executable = '../typescript/bin/tsc'
+const spawn_executable = path.join(__dirname, '../typescript/bin/tsc')
 const spawn_options = {
 	timeout: 60 * 1000,
 	env: process.env,
