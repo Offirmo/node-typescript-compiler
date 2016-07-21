@@ -1,0 +1,28 @@
+{
+  "name": "node-typescript-compiler",
+  "version": "0.0.1",
+  "description": "Exposes typescript compiler (tsc) as a node.js module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Offirmo/node-typescript-compiler.git"
+  },
+  "keywords": [
+    "typescript",
+    "compiler",
+    "tsc",
+    "node"
+  ],
+  "author": "Offirmo <offirmo.net@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Offirmo/node-typescript-compiler/issues"
+  },
+  "homepage": "https://github.com/Offirmo/node-typescript-compiler#readme",
+  "dependencies": {
+    "lodash": "^4.13.1"
+  }
+}
