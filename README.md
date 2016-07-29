@@ -62,3 +62,8 @@ return tsc.compile({
 })
 ```
 --> `tsc --help` (boolean "true" values are not needed thus don't appear)
+
+## design considerations
+It seems we could do that more elegantly and at a deeper level by directly calling tsc code, as explained here: https://basarat.gitbooks.io/typescript/content/docs/compiler/overview.html
+
+However, that would take a lot of time and effort, and I'm afraid of API changes. So *no*.
