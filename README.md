@@ -10,7 +10,8 @@ This work trivially by spawning `tsc` from the sibling `node_modules/typescript`
 
 
 ## installation
-**node-typescript-compiler** requires the **typescript module** as a sibling (not included so you can choose version)
+**node-typescript-compiler** requires the **typescript module** as a sibling, not included so you can choose version.
+(though node-typescript-compiler will intelligently try to locate global typescript if it can't be found as a sibling. but this is not recommended)
 
 ```bash
 npm i --save-dev typescript
@@ -34,7 +35,7 @@ tsc.compile({
 })
 .then(...)
 ```
---> `tsc --project .`
+--> Will spawn `tsc --project .`
 
 * Compile current project with some options overridden:
 
@@ -51,6 +52,8 @@ tsc.compile(
 	tsconfig.json.files,
 )
 ```
+--> Will spawn `tsc <... non-overriden tsconfig options> --outDir dist/es6.amd --module amd`
+ (boolean "false" values cause the corresponding option to not be added, this is the intended behaviour)
 
 * Get help:
 
@@ -61,9 +64,12 @@ return tsc.compile({
 	'help': true
 })
 ```
---> `tsc --help` (boolean "true" values are not needed thus don't appear)
+--> Will spawn `tsc --help` (boolean "true" values are not needed thus don't appear, option presence is enough)
 
 ## design considerations
-It seems we could do that more elegantly and at a deeper level by directly calling tsc code, as explained here: https://basarat.gitbooks.io/typescript/content/docs/compiler/overview.html
+It seems we could do that more elegantly and at a lower level by directly calling tsc code, as explained here: https://basarat.gitbooks.io/typescript/content/docs/compiler/overview.html
 
 However, that would take a lot of time and effort, and I'm afraid of API changes. So *no*.
+
+## see also
+https://www.npmjs.com/package/ntypescript but they have poor doc and don't allow choosing the typescript version (ex. using the unstable "next")

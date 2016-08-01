@@ -4,7 +4,7 @@
   "description": "Exposes typescript compiler (tsc) as a node.js module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"This is a trivial module, I wont bother to add tests :)\"",
+    "test": "./test/test.sh",
     "np": "np"
   },
   "repository": {
@@ -24,7 +24,10 @@
   },
   "homepage": "https://github.com/Offirmo/node-typescript-compiler#readme",
   "dependencies": {
-    "lodash": "^4.13.1"
+    "lodash": "^4.13.1",
+    "os-homedir": "^1.0.1",
+    "path-exists": "^3.0.0",
+    "tildify": "^1.2.0"
   },
   "devDependencies": {
     "np": "^2.6.0"
