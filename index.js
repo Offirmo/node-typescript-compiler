@@ -37,6 +37,8 @@ function compile(params, files) {
 				return []
 			if (value === true)
 				return [ `--${key}` ]
+			if (_.isArray(value))
+				value = value.join(',')
 			return [ `--${key}`, value ]
 		}))
 		const spawn_params = options_as_array.concat(files)
@@ -88,8 +90,14 @@ function compile(params, files) {
 
 			spawn_instance.stdout.on('data', data => {
 				_.split(data, '\n').forEach(line => {
+					if (!line.length) return // convenience for more compact output
+
 					if (line[0] === '/')
 						line = tildify(line) // convenience for readability if using --listFiles
+
+					if (line.slice(-35) === 'Starting incremental compilation...')
+						console.log('\n************************************')
+
 					console.log(RADIX + ' > ' + line)
 				})
 				stdout += data
@@ -131,7 +139,7 @@ function find_tsc() {
 	function candidate_if_exists(candidate) {
 		return path_exists(candidate)
 		.then(exists => {
-			if (!exists) throw new Error(`[${MODULE_ID}] couldnt find "${candidate}"`)
+			if (!exists) throw new Error(`[${MODULE_ID}] couldn't find "${candidate}"`)
 			return candidate
 		})
 	}
