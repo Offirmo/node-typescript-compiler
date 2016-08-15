@@ -1,4 +1,5 @@
 // this file should work with current node stable (v4 on 2016/07/12)
+"use strict";
 
 ///////////////////////////////////////////////////////
 
